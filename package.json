@@ -1,0 +1,17 @@
+{
+  "name": "ugc-jarvis",
+  "version": "1.0.0",
+  "description": "Telegram bot for generating UGC-style video ads",
+  "main": "bot.js",
+  "type": "module",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "node --watch bot.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "grammy": "^1.21.1",
+    "uuid": "^9.0.1"
+  }
+}
