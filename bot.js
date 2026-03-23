@@ -351,27 +351,10 @@ import { webhookCallback } from 'grammy';
 
 console.log('🤖 UGC Jarvis starting...');
 
-// Register commands
-try {
-  await bot.api.setMyCommands([
-    { command: 'start', description: 'Start the bot' },
-    { command: 'create', description: 'Create a new ad' },
-    { command: 'history', description: 'View past projects' },
-    { command: 'help', description: 'Get help' },
-    { command: 'cancel', description: 'Cancel creation' }
-  ]);
-  console.log('✅ Commands registered');
-} catch (e) {
-  console.log('⚠️ Could not set commands:', e.message);
-}
-
-// Webhook mode for production
+// Webhook mode for production (Vercel compatible)
 const app = express();
 app.use(express.json());
 app.use('/webhook', webhookCallback(bot, 'express'));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`✅ Bot running on port ${PORT}`);
-  console.log(`🔗 Set webhook: https://your-domain.com/webhook`);
-});
+// Vercel serverless export
+export default app;
