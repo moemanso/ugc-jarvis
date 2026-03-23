@@ -11,8 +11,17 @@ bot.command('create', async (ctx) => {
   await ctx.reply('📦 Send product link or image');
 });
 
+bot.catch((err) => {
+  console.error('Bot error:', err);
+});
+
 const app = express();
 app.use(express.json());
-app.use('/', webhookCallback(bot, 'express'));
+
+app.get('/', (req, res) => {
+  res.status(200).send('Bot is running!');
+});
+
+app.post('/', webhookCallback(bot, 'express'));
 
 export default app;
