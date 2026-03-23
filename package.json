@@ -4,6 +4,9 @@
   "description": "Telegram bot for generating UGC-style video ads",
   "main": "bot.js",
   "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "start": "node bot.js",
     "dev": "node --watch bot.js"
